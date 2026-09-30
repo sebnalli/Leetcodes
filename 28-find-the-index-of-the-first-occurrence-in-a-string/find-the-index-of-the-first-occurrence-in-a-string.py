@@ -1,16 +1,16 @@
 class Solution(object):
     def strStr(self, haystack, needle):
-        """
-        :type haystack: str
-        :type needle: str
-        :rtype: int
-        """
+        n = len(needle)
+        m = len(haystack)
 
-        l = len(needle)
-
+        if m == 0:
+            return -1
+        if haystack == needle:
+            return 0
+            
         for i, char in enumerate(haystack):
             if char == needle[0]:
-                if haystack[i:i + l] == needle:
+                if haystack[i:i + n] == needle:
                     return i
 
         return -1
