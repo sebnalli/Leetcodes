@@ -13,7 +13,7 @@ class Solution(object):
         head = ListNode(0)
         currentSum = head
             
-        while current1 is not None or current2 is not None:    
+        while current1 != None or current2 != None:    
             if current1 is None:
                 digit1 = 0
             else:
