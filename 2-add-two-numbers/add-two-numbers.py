@@ -19,7 +19,7 @@ class Solution(object):
             else:
                 digit1 = current1.val
 
-            if current2 == None:
+            if current2 is None:
                 digit2 = 0
             else:
                 digit2 = current2.val
