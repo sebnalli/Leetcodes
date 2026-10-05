@@ -1,10 +1,17 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        
+
+        m = {}
+        op = []
+
         for i in range(len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i,j]
+            if target - nums[i] in m:
+                op.append(m[target - nums[i]])
+                op.append(i)
+                return op
+            else:
+                m[nums[i]] = i
+                
                 
             
         
