@@ -11,13 +11,11 @@ class MinStack(object):
             self.min_stk.append(value)
         
     def pop(self):
-        if self.stk[-1] == self.min_stk[-1]:
+        value = self.stk.pop() 
+
+        if value == self.min_stk[-1]:
             self.min_stk.pop()
-
-        self.stk.pop()
         
-        
-
     def top(self):
         return self.stk[-1]
         
