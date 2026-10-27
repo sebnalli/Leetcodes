@@ -7,13 +7,9 @@ class MinStack(object):
     def push(self, value):
         self.stk.append(value)
 
-        if not self.min_stk:
-            self.min_stk.append(value)
-
-        elif value <= self.min_stk[-1]:
+        if not self.min_stk or value <= self.min_stk[-1]:
             self.min_stk.append(value)
         
-
     def pop(self):
         if self.stk[-1] == self.min_stk[-1]:
             self.min_stk.pop()
