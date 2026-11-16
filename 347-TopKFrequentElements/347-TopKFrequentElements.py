@@ -1,17 +1,33 @@
-# Last updated: 2026-11-15, 10:49:07 p.m.
+# Last updated: 2026-11-15, 11:31:45 p.m.
 class Solution(object):
     def topKFrequent(self, nums, k):
-        map = {}
-        op = []
-         
+
+        count = {}
+        result = []
+
+        buckets = []
+        for _ in range(len(nums) + 1):
+            buckets.append([])
+
         for num in nums:
-            if num not in map:
-                map[num] = 1
+            if num not in count:
+                count[num] = 1
                 continue
 
-            map[num] += 1
+            count[num] += 1
+        
+        for num, freq in count.items():
+            buckets[freq].append(num)
 
-        sorted_items = sorted(map.items(), key=lambda x: x[1], reverse=True)
+        for bucket in reversed(buckets):
 
-        return [pair[0] for pair in sorted_items[:k]]
-            
+            if len(result) >= k:
+                break
+
+            if not bucket:
+                continue 
+
+            result.extend(bucket)
+
+        return result
+
